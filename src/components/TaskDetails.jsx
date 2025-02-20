@@ -17,14 +17,19 @@ const TaskDetails = ({ tasks, setTasks }) => {
     <div className="task-details">
       <h1>{task.title}</h1>
       <p>{task.description}</p>
-      <select 
+    <select 
         value={task.status} 
-        onChange={(e) => setTasks((prev) => prev.map(t => t.id === id ? {...t, status: e.target.value} : t))}
-      >
-        <option value="pendente">Pendente</option>
-        <option value="realizando">Realizando</option>
-        <option value="concluida">Concluída</option>
-      </select>
+        onChange={(e) => {
+        const newStatus = e.target.value;
+            setTasks((prevTasks) => 
+        prevTasks.map((t) => t.id === id ? { ...t, status: newStatus } : t)
+        );
+     }}
+    >
+    <option value="To Do">To Do</option>
+    <option value="In Progress">In Progress</option>
+    <option value="Done">Done</option>
+    </select>
       <button onClick={handleDelete}>Deletar atividade</button>
     </div>
   );

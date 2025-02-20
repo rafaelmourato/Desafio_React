@@ -8,11 +8,15 @@ import TaskDetails from "./components/TaskDetails";
 import "./styles/app.css";
 
 function App() {
-  const [tasks, setTasks] = useState(() => {
-    const savedTasks = localStorage.getItem("tasks");
-    return savedTasks ? JSON.parse(savedTasks) : [];
-  });
+  const [tasks, setTasks] = useState([]);
 
+  // Carregar tarefas do Local Storage ao iniciar
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    setTasks(storedTasks);
+  }, []);
+
+  // Salvar tarefas no Local Storage sempre que houver alteração
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -22,14 +26,14 @@ function App() {
       <div className="app">
         <Header />
         <Routes>
-          <Route 
-            path="/" 
+          <Route
+            path="/"
             element={
               <>
                 <FilterBar />
-                <Board tasks={tasks} />
+                <Board tasks={tasks} setTasks={setTasks} />
               </>
-            } 
+            }
           />
           <Route path="/new-task" element={<TaskForm setTasks={setTasks} />} />
           <Route path="/task/:id" element={<TaskDetails tasks={tasks} setTasks={setTasks} />} />
