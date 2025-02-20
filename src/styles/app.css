@@ -36,5 +36,17 @@
     width: 90%;
     max-width: 1200px;
   }
-  
-  
+  .add-task-button {
+    margin: 20px 0;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.add-task-button:hover {
+    background-color: #0056b3;
+}

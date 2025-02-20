@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import "../styles/filterbar.css";
 
 const FilterBar = ({ filter, setFilter }) => {
-  // Função para filtrar as tarefas
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
   };
@@ -19,10 +18,8 @@ const FilterBar = ({ filter, setFilter }) => {
   );
 };
 
-// 🔹 Adicionando validação de PropTypes
+// 🔹 Corrigindo PropTypes para refletir apenas as props usadas
 FilterBar.propTypes = {
-  tasks: PropTypes.array.isRequired,
-  setTasks: PropTypes.func.isRequired, // Pode ser removido se não for usado
   filter: PropTypes.string.isRequired,
   setFilter: PropTypes.func.isRequired,
 };

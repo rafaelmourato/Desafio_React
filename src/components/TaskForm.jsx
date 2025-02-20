@@ -1,50 +1,55 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import "../styles/taskform.css";
 
-const TaskForm = ({ setTasks, status }) => {
+const TaskForm = ({ setTasks }) => {
   const [title, setTitle] = useState("");
-  const [priority, setPriority] = useState("Normal");
+  const [description, setDescription] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!title.trim()) return;
+
     const newTask = {
-      id: Date.now(),
+      id: Date.now().toString(),
       title,
-      status,
-      priority,
+      description,
+      status: "To Do", // Ajuste para corresponder ao Board
     };
-    setTasks((prevTasks) => [...prevTasks, newTask]);
-    setTitle("");
+
+    setTasks((prevTasks) => {
+      const updatedTasks = [...prevTasks, newTask];
+      localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+      return updatedTasks;
+    });
+
+    navigate("/");
   };
 
   return (
-    <form onSubmit={handleSubmit} className="task-form">
-      <input
-        type="text"
-        placeholder="Título da tarefa"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        required
-      />
-      <select
-        value={priority}
-        onChange={(e) => setPriority(e.target.value)}
-        required
-      >
-        <option value="Baixa">Baixa</option>
-        <option value="Normal">Normal</option>
-        <option value="Alta">Alta</option>
-      </select>
-      <button type="submit">Adicionar</button>
-    </form>
+    <div className="task-form">
+      <h2>Nova Atividade</h2>
+      <form onSubmit={handleSubmit}>
+        <input 
+          type="text" 
+          placeholder="Título" 
+          value={title} 
+          onChange={(e) => setTitle(e.target.value)} 
+        />
+        <textarea 
+          placeholder="Descrição" 
+          value={description} 
+          onChange={(e) => setDescription(e.target.value)} 
+        />
+        <button type="submit">Adicionar</button>
+      </form>
+    </div>
   );
 };
 
-// 🔹 Adicionando validação de PropTypes
 TaskForm.propTypes = {
   setTasks: PropTypes.func.isRequired,
-  status: PropTypes.string.isRequired,
 };
 
 export default TaskForm;

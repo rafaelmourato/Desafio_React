@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import Task from "./Task";
+import { Link } from "react-router-dom";
 import "../styles/board.css";
 
-const Board = ({ tasks, setTasks }) => {
+const Board = ({ tasks }) => {
   const statuses = ["To Do", "In Progress", "Done"];
 
   return (
@@ -13,7 +13,11 @@ const Board = ({ tasks, setTasks }) => {
           {tasks
             .filter((task) => task.status === status)
             .map((task) => (
-              <Task key={task.id} task={task} setTasks={setTasks} />
+              <Link to={`/task/${task.id}`} key={task.id} className="task-link">
+                <div className="task">
+                  <h3>{task.title}</h3>
+                </div>
+              </Link>
             ))}
         </div>
       ))}
@@ -27,3 +31,4 @@ Board.propTypes = {
 };
 
 export default Board;
+
