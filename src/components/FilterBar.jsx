@@ -1,11 +1,11 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
+import "../styles/filterbar.css";
 
-const FilterBar = ({ tasks, setTasks }) => {
-  const [filter, setFilter] = useState("");
-
-  const filteredTasks = tasks.filter((task) =>
-    task.title.toLowerCase().includes(filter.toLowerCase())
-  );
+const FilterBar = ({ filter, setFilter }) => {
+  // Função para filtrar as tarefas
+  const handleFilterChange = (event) => {
+    setFilter(event.target.value);
+  };
 
   return (
     <div className="filter-bar">
@@ -13,10 +13,18 @@ const FilterBar = ({ tasks, setTasks }) => {
         type="text"
         placeholder="Filtrar tarefas..."
         value={filter}
-        onChange={(e) => setFilter(e.target.value)}
+        onChange={handleFilterChange}
       />
     </div>
   );
+};
+
+// 🔹 Adicionando validação de PropTypes
+FilterBar.propTypes = {
+  tasks: PropTypes.array.isRequired,
+  setTasks: PropTypes.func.isRequired, // Pode ser removido se não for usado
+  filter: PropTypes.string.isRequired,
+  setFilter: PropTypes.func.isRequired,
 };
 
 export default FilterBar;
