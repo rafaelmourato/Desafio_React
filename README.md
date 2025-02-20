@@ -1,2 +1,5 @@
-# Desafio_React
-Desafio React Native para curso de engenharia de software
+# Projeto de React Engenharia de Software
+
+# Build
+
+É necessário o download do Node
