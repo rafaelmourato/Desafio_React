@@ -29,9 +29,9 @@ const TaskPage = ({ tasks, setTasks }) => {
           setTasks(updatedTasks);
         }}
       >
-        <option value="To Do">To Do</option>
-        <option value="In Progress">In Progress</option>
-        <option value="Done">Done</option>
+        <option value="Planejado">Planejado</option>
+        <option value="Em Andamento">Em Andamento</option>
+        <option value="Concluido">Concluido</option>
       </select>
       
       <label>Descrição</label>

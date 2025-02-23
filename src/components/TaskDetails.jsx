@@ -41,9 +41,9 @@ const TaskDetails = ({ tasks, setTasks }) => {
           );
         }}
       >
-        <option value="To Do">To Do</option>
-        <option value="In Progress">In Progress</option>
-        <option value="Done">Done</option>
+        <option value="Planejado">Planejado</option>
+        <option value="Em Andamento">Em Andamento</option>
+        <option value="Concluido">Concluido</option>
       </select>
       <button onClick={handleSave}>Salvar</button>
       <button onClick={handleDelete}>Deletar</button>

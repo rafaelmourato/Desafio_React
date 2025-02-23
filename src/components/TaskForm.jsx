@@ -15,7 +15,7 @@ const TaskForm = ({ setTasks }) => {
       id: Date.now().toString(),
       title,
       description,
-      status: "To Do", // Ajuste para corresponder ao Board
+      status: "Planejado", // Ajuste para corresponder ao Board
     };
 
     setTasks((prevTasks) => {
