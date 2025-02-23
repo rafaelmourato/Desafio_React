@@ -1,31 +1,31 @@
 .task {
-    padding: var(--card-padding);
-    border-radius: var(--border-radius);
-    margin-bottom: 10px;
-    color: white;
-  }
-  
-  .task.low {
-    background-color: #38a169;
-  }
-  
-  .task.normal {
-    background-color: #3182ce;
-  }
-  
-  .task.high {
-    background-color: #e53e3e;
-  }
-  
-  .task p {
-    margin: 5px 0;
-    font-size: 0.9rem;
-  }
-  
-  .task .priority {
-    border: 1px solid white;
-    padding: 2px 5px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-  }
-  
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  color: white;
+  font-weight: bold;
+}
+
+.task.low {
+  background-color: #50fa7b;
+}
+
+.task.normal {
+  background-color: #6272a4;
+}
+
+.task.high {
+  background-color: #ff5555;
+}
+
+.task p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.task .priority {
+  border: 1px solid white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}

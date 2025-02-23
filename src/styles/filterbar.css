@@ -1,18 +1,19 @@
 .filter-bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    max-width: 1200px;
-    margin-bottom: 20px;
-  }
-  
-  .filter-bar input {
-    width: 100%;
-    max-width: 300px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  margin-bottom: 20px;
+}
+
+.filter-bar input {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px;
+  border: 1px solid #44475a;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #282a36;
+  color: white;
+}

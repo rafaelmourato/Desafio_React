@@ -3,15 +3,17 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 24px;
     width: 50%;
     margin: 0 auto;
-    background-color: #222;
-    border-radius: 10px;
+    background-color: #1e1e2e;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .task-form h2 {
     color: white;
+    font-size: 1.8rem;
 }
 
 .task-form form {
@@ -24,21 +26,25 @@
 .task-form textarea,
 .task-form select {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: none;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #44475a;
+    background-color: #282a36;
+    color: white;
 }
 
 .task-form button {
-    padding: 10px;
-    background-color: #28a745;
+    padding: 12px;
+    background-color: #50fa7b;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .task-form button:hover {
-    background-color: #218838;
+    background-color: #40d67f;
 }
