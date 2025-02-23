@@ -3,20 +3,19 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Board from "./components/Board";
 import Header from "./components/Header";
 import FilterBar from "./components/FilterBar";
-import TaskForm from "./components/TaskForm";
+import TaskForm from "./components/Taskform";
 import TaskDetails from "./components/TaskDetails";
 import "./styles/app.css";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState(""); // Adicionado para filtragem
 
-  // Carregar tarefas do Local Storage ao iniciar
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     setTasks(storedTasks);
   }, []);
 
-  // Salvar tarefas no Local Storage sempre que houver alteração
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
@@ -30,8 +29,8 @@ function App() {
             path="/"
             element={
               <>
-                <FilterBar />
-                <Board tasks={tasks} setTasks={setTasks} />
+                <FilterBar filter={filter} setFilter={setFilter} />
+                <Board tasks={tasks} setTasks={setTasks} filter={filter} />
               </>
             }
           />
